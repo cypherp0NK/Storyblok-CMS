@@ -20,7 +20,7 @@ const components = {
   "Minimum Length": MinLength,
 };
 storyblokInit({
-  accessToken: "tky4UOeDfd009rRibvS2tQtt",
+  accessToken: process.env.ACCESS_TOKEN,
   use: [apiPlugin],
   components,
 });
