@@ -16,8 +16,12 @@ export default function FormInputs({ blok, register, errors }) {
               /^[a-z0-9,_%+-]+@[a-z0-9,-]+\.[a-z{2,4}$]/) ||
             (blok.Type === "tel" &&
               /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{3,8}$/),
-          maxLength: blok.Type === "tel" && blok.Validators[0].maxLength,
-          minLength: blok.Type === "tel" && blok.Validators[1].minLength,
+          maxLength:
+            blok.Type === "tel" &&
+            blok.Validators.find((findMax) => findMax.maxLength).maxLength,
+          minLength:
+            blok.Type === "tel" &&
+            blok.Validators.find((findMin) => findMin.minLength).minLength,
         })}
       />
       <div className="text-red-500">
